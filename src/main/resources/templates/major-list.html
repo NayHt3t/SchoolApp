@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School App</title>
-    <link rel="stylesheet" href="/css/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>School App</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <div class="container">
-        <h3 class="title">Major Information Table</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
+	<div class="container">
+		<h3 class="title">Major Information Table</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
 
-            <tbody>
-                <tr th:each="major : ${majorlist}">
-                    <td th:text="${major.id}"></td>
-                    <td th:text="${major.name}"></td>
-                    <td th:text="${major.description}"></td>
-                </tr>
-            </tbody>
+			<tbody>
+				<tr th:each="major : ${majorlist}">
+					<td th:text="${major.id}"></td>
+					<td th:text="${major.name}"></td>
+					<td th:text="${major.description}"></td>
+				</tr>
+			</tbody>
 
-            <tfoot>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+			<tfoot>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+			</tfoot>
+		</table>
+		
+		<a href="/create">Create</a>
+	</div>
 </body>
+
 </html>
