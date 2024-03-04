@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.hmi.school.entity.Major;
 import com.hmi.school.service.MajorService;
@@ -40,6 +41,13 @@ public class MajorController {
 		Major createdMajor = majorService.saveMajor(major);
 		System.out.println("created major id = " + createdMajor.getId());
 		return "redirect:/all";
+	}
+	
+	@GetMapping("/update/{majorId}")
+	public String showUpdateForm(@PathVariable Long majorId, Model model) {
+		Major major = majorService.getMajorById(majorId);
+		model.addAttribute("major", major);
+		return "add-major";
 	}
 	
 	
