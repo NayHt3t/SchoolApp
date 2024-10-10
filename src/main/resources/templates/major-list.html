@@ -26,7 +26,11 @@
 					<td th:text="${major.id}"></td>
 					<td th:text="${major.name}"></td>
 					<td th:text="${major.description}"></td>
-					<td><a th:href="@{'/update/' + ${major.id}}">Edit</a></td>
+					<td>
+						<a th:href="@{'/major/update/' + ${major.id}}">Edit</a> | 
+						<a th:href="@{'/major/delete/' + ${major.id}}">Delete</a> |
+						<a th:href="@{'/major/' + ${major.id}}">View</a> 
+					</td>
 				</tr>
 			</tbody>
 
@@ -40,7 +44,7 @@
 			</tfoot>
 		</table>
 		
-		<a class="btn-create" href="/create">Create</a>
+		<a class="btn-create" href="/major/create">Create</a>
 	</div>
 </body>
 

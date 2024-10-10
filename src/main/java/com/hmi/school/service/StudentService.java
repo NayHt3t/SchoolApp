@@ -25,8 +25,7 @@ public class StudentService {
 	public Student getStudentById(Long studentId) {
 		Optional<Student> studentOptional = studentDAO.findById(studentId);
 		if (studentOptional.isEmpty()) {
-			System.out.println("Student with id : " + studentId + " is not found.");
-			throw new RuntimeException();
+			throw new RuntimeException("Student with id : " + studentId + " is not found.");
 		}
 		return studentOptional.get();
 	}

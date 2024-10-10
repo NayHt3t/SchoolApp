@@ -1,9 +1,13 @@
 package com.hmi.school.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Major {
@@ -14,9 +18,10 @@ public class Major {
 	private String name;
 	private String description;
 	
-	public Major() {
-		
-	}
+	@OneToMany
+	private List<Student> students = new ArrayList<>();
+	
+	public Major() {}
 
 	public long getId() {
 		return id;
@@ -41,6 +46,16 @@ public class Major {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+	
+	
 	
 	
 	

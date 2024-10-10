@@ -1,9 +1,14 @@
 package com.hmi.school.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 @Entity
 public class Student {
 	
@@ -17,9 +22,13 @@ public class Student {
 	private String email;
 	private Integer year;
 	
-	public Student() {
-		
-	}
+	@ManyToMany
+	private Set<Teacher> teachers = new HashSet<>();
+	
+	@ManyToOne
+	private Major major;
+	
+	public Student() {}
 
 	public Long getId() {
 		return id;
@@ -67,6 +76,22 @@ public class Student {
 
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+
+	public Major getMajor() {
+		return major;
+	}
+
+	public void setMajor(Major major) {
+		this.major = major;
+	}
+
+	public Set<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	public void setTeachers(Set<Teacher> teachers) {
+		this.teachers = teachers;
 	}
 	
 	

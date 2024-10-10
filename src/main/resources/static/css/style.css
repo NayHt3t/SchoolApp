@@ -54,13 +54,13 @@ td,th{
     margin-bottom: 1rem;
 }
 
-input, textarea{
+input, textarea, select{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     width: 100%;
 }
 
-input{
+input, select{
     height: 2rem;
 }
 
